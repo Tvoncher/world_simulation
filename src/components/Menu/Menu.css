@@ -1,0 +1,12 @@
+.menu__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 20vh;
+  background: rgb(156, 186, 214);
+}
+
+.center {
+  font-size: 36px;
+  font-weight: bolder;
+}
