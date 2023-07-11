@@ -4,6 +4,7 @@ import { LeafletEvent } from "leaflet";
 import data from "./geo.json";
 import { countryStore } from "../../stores/CountryStore";
 import { gameStore } from "../../stores/GameStore";
+import { worldStore } from "../../stores/WorldStore";
 
 const geoData = JSON.stringify(data);
 const borderWeight = 0.3;
@@ -20,7 +21,7 @@ const Map: FC = () => {
 
     //TODO: change later
     gameStore.isPlaying
-      ? console.log("change later")
+      ? console.log(worldStore.getCountry(countryName))
       : gameStore.setIsPlaying();
   };
 

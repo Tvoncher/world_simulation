@@ -6,3 +6,8 @@ interface ICountryStats {
   earnings: number;
   taxes: number;
 }
+
+interface ICountry {
+  name: string;
+  stats: ICountryStats;
+}
