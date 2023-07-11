@@ -25,9 +25,7 @@ const Map: FC = () => {
     setSelectedCountry(() => countryName);
 
     //TODO: change later
-    gameStore.isPlaying
-      ? console.log(worldStore.getCountry(countryName))
-      : gameStore.setIsPlaying();
+    gameStore.isPlaying ? console.log("") : gameStore.setIsPlaying();
   };
 
   return (

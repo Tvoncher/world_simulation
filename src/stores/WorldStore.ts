@@ -1,6 +1,7 @@
 import { action, makeObservable, observable } from "mobx";
 import geoData from "../components/Map/geo.json";
 import { initialStats } from "../utils/initialData";
+import { setTraits } from "../utils/utils";
 
 export class WorldStore {
   @observable
@@ -21,7 +22,10 @@ export class WorldStore {
     const newCountry: ICountry = {
       name: countryName,
       stats: initialStats,
+      traits: [],
     };
+    setTraits(newCountry.traits);
+
     this.countries = [...this.countries, newCountry];
   }
 

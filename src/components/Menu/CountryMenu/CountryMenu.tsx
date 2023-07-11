@@ -10,6 +10,7 @@ const CountryMenu: FC = observer(() => {
     <div className="countryMenu__wrapper">
       <div>
         Your country is <h2>{countryStore.selectedCountry}</h2>
+        your uniquenesses are: {countryStore.traits.join(", ")}
       </div>
       <div className="buttons__wrapper">
         <div className="menu_button">upgrades1</div>

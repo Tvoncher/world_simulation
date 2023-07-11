@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { observer } from "mobx-react-lite";
 import { worldStore } from "../../stores/WorldStore";
+import { countryStore } from "../../stores/CountryStore";
 
 import Stats from "./Stats/Stats";
 import CountryMenu from "./CountryMenu/CountryMenu";
@@ -8,13 +9,19 @@ import CountryMenu from "./CountryMenu/CountryMenu";
 import "./Menu.css";
 
 const Menu: FC = observer(() => {
+  const selectedCountry = worldStore.selectedCountry;
+  const countryObj = worldStore.countries.filter(
+    (country) => country.name === selectedCountry
+  );
+
   return (
     <div className="menu__wrapper">
-      <CountryMenu />
+      {countryStore.selectedCountry && <CountryMenu />}
       <div className="center">
-        Selected country: <h2>{worldStore.selectedCountry}</h2>
+        <h2>{countryObj[0]?.name}</h2>
+        {countryObj[0]?.traits.join(", ")}
       </div>
-      <Stats />
+      {countryStore.selectedCountry && <Stats />}
     </div>
   );
 });

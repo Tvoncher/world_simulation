@@ -6,3 +6,15 @@ export const initialStats: ICountryStats = {
   earnings: 200,
   taxes: 100,
 };
+
+export const listOfTraits = [
+  "dumb people",
+  "doormat people",
+  "angry people",
+  "corruption everywhere",
+  "opposition rises",
+  "smart people",
+  "lack of resources",
+  "awfully religious",
+  "bad ecology",
+];

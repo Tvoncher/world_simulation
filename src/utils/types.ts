@@ -10,4 +10,5 @@ interface ICountryStats {
 interface ICountry {
   name: string;
   stats: ICountryStats;
+  traits: string[];
 }
