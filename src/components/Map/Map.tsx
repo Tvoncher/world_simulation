@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import { LeafletEvent } from "leaflet";
 import data from "./geo.json";
 import { countryStore } from "../../stores/CountryStore";
+import { gameStore } from "../../stores/GameStore";
 
 const geoData = JSON.stringify(data);
 const borderWeight = 0.3;
@@ -16,7 +17,11 @@ const Map: FC = () => {
     const countryName = event.target.feature.properties.name;
     countryStore.setSelectedCountry(countryName);
     setSelectedCountry(() => countryName);
-    countryStore.startGame();
+
+    //TODO: change later
+    gameStore.isPlaying
+      ? console.log("change later")
+      : gameStore.setIsPlaying();
   };
 
   return (

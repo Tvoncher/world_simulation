@@ -1,6 +1,5 @@
 import { action, makeObservable, observable } from "mobx";
 import { initialStats } from "../utils/initialData";
-import { gameStore } from "./GameStore";
 
 export class CountryStore {
   @observable
@@ -16,16 +15,6 @@ export class CountryStore {
   @action
   setSelectedCountry(countryName: string) {
     this.selectedCountry = countryName;
-  }
-
-  //TODO: replace later
-  @action
-  startGame() {
-    //gameStore.setIsPlaying();
-
-    setInterval(() => {
-      this.handleMoney();
-    }, 1000);
   }
 
   @action
