@@ -1,10 +1,11 @@
 import { FC, useState } from "react";
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import { LeafletEvent } from "leaflet";
-import data from "./geo.json";
 import { countryStore } from "../../stores/CountryStore";
 import { gameStore } from "../../stores/GameStore";
 import { worldStore } from "../../stores/WorldStore";
+
+import data from "./geo.json";
 
 const geoData = JSON.stringify(data);
 const borderWeight = 0.3;
@@ -16,7 +17,11 @@ const Map: FC = () => {
 
   const handleClick = (event: LeafletEvent) => {
     const countryName = event.target.feature.properties.name;
-    countryStore.setSelectedCountry(countryName);
+
+    gameStore.isPlaying
+      ? worldStore.setSelectedCountry(countryName)
+      : countryStore.setSelectedCountry(countryName);
+
     setSelectedCountry(() => countryName);
 
     //TODO: change later
@@ -48,6 +53,8 @@ const Map: FC = () => {
         style={(feature) =>
           feature?.properties.name === selectedCountry
             ? { fillColor: "blue", fillOpacity: 0.2 }
+            : feature?.properties.name === countryStore.selectedCountry
+            ? { fillColor: "lavender", fillOpacity: 0.5 }
             : { fillColor: "black", fillOpacity: 0 }
         }
         data={JSON.parse(geoData)}

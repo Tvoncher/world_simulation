@@ -1,0 +1,10 @@
+.countryMenu__wrapper {
+  width: 30%;
+  border: 2px solid gray;
+  text-align: center;
+}
+
+.buttons__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}

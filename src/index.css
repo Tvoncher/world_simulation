@@ -3,3 +3,17 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.menu_button {
+  border: 3px solid gray;
+  border-radius: 10px;
+  width: 100px;
+  padding: 10px;
+  margin: 3px;
+  cursor: pointer;
+  transition: 80ms;
+}
+
+.menu_button:active {
+  scale: 0.8;
+}

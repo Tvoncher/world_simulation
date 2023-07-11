@@ -1,12 +1,18 @@
 .menu__wrapper {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   height: 20vh;
-  background: rgb(156, 186, 214);
+  background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.6) 10%,
+      rgba(92, 158, 170, 0.1) 50%,
+      rgba(0, 0, 0, 0.6) 90%
+    ),
+    repeating-radial-gradient(circle at 20%, #203d4c 1px, #1f4651 20px);
+  color: rgb(206, 200, 200);
 }
 
 .center {
   font-size: 36px;
-  font-weight: bolder;
 }

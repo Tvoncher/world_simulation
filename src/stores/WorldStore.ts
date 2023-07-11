@@ -6,6 +6,9 @@ export class WorldStore {
   @observable
   countries: ICountry[] = [];
 
+  @observable
+  selectedCountry = "";
+
   public constructor() {
     geoData.features.forEach((feature) =>
       this.addToCountries(feature.properties.name)
@@ -28,6 +31,11 @@ export class WorldStore {
       (country) => country.name === countryName
     );
     return country;
+  }
+
+  @action
+  setSelectedCountry(countryName: string) {
+    this.selectedCountry = countryName;
   }
 }
 

@@ -9,12 +9,13 @@ const Onboarding: FC = () => {
   return (
     <div
       style={{
-        height: "70vh",
+        height: "100vh",
         width: "100vw",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
+        background: "gainsboro",
       }}
     >
       <div>Lets say onboarding</div>
