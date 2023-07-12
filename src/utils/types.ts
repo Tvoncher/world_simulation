@@ -12,3 +12,8 @@ interface ICountry {
   stats: ICountryStats;
   traits: string[];
 }
+
+interface IEvent {
+  title: string;
+  text: string;
+}

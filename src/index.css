@@ -17,3 +17,22 @@
 .menu_button:active {
   scale: 0.8;
 }
+
+:root {
+  --background-menu: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.6) 10%,
+      rgba(92, 158, 170, 0.1) 50%,
+      rgba(0, 0, 0, 0.6) 90%
+    ),
+    repeating-radial-gradient(circle at 20%, #203d4c 1px, #1f4651 20px);
+
+  --background-popup: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.6) 15%,
+    rgba(136, 132, 132, 0.8) 50%,
+    rgba(255, 255, 255, 0.6) 90%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}

@@ -38,7 +38,7 @@ const Map: FC = () => {
       touchZoom={false}
       dragging={false}
       preferCanvas={drawOnCanvas}
-      style={{ height: "80vh", width: "100%" }}
+      style={{ height: "80vh", width: "100%", zIndex: "0" }}
     >
       <GeoJSON
         onEachFeature={(_feature, layer) => {
