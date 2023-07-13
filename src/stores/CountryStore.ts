@@ -2,6 +2,8 @@ import { action, makeObservable, observable } from "mobx";
 import { initialStats } from "../utils/initialData";
 import { setTraits } from "../utils/utils";
 
+import { ICountryStats } from "../utils/types";
+
 //store for playable country
 export class CountryStore {
   @observable

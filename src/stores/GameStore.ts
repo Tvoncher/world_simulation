@@ -4,6 +4,9 @@ export class GameStore {
   @observable
   isPlaying = false;
 
+  @observable
+  readonly gameSpeed = 9000;
+
   public constructor() {
     makeObservable(this);
   }

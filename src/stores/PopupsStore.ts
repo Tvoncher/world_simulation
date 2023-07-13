@@ -1,23 +1,45 @@
-import { action, makeObservable, observable } from "mobx";
-import { initialEvent } from "../utils/events";
+import { action, makeObservable, observable, reaction } from "mobx";
+import { allEvents, initialEvent } from "../utils/events";
+import { IEvent } from "../utils/types";
+import { gameStore } from "./GameStore";
 
 export class PopupsStore {
   @observable
-  events: IEvent[] = [initialEvent];
+  event: IEvent | null = initialEvent;
 
   @observable
   eventsHistory: IEvent[] = [];
 
-  @observable
-  isShown = true;
-
   constructor() {
     makeObservable(this);
+
+    reaction(
+      () => this.event,
+      () => {
+        if (!this.event) {
+          this.pickNewEvent();
+        }
+      }
+    );
   }
 
   @action
-  setIsShow(value: boolean) {
-    this.isShown = value;
+  moveEventToHistory() {
+    this.eventsHistory = [...this.eventsHistory, this.event!];
+    this.event = null;
+  }
+
+  @action
+  pickNewEvent() {
+    const interval = setInterval(() => {
+      const randomEventNumber = Math.floor(Math.random() * allEvents.length);
+
+      this.event = allEvents[randomEventNumber];
+
+      allEvents.splice(randomEventNumber, 1);
+
+      clearInterval(interval);
+    }, gameStore.gameSpeed);
   }
 }
 

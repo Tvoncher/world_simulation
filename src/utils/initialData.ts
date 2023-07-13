@@ -1,3 +1,5 @@
+import { ICountryStats } from "./types";
+
 export const initialStats: ICountryStats = {
   polulation: 1000,
   tech: 0,

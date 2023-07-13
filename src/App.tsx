@@ -18,10 +18,11 @@ const App: FC = observer(() => {
         <Onboarding />
       ) : (
         <>
-          {popupsStore.isShown && (
+          {popupsStore.event && (
             <Popup
-              title={popupsStore.events[0].title}
-              text={popupsStore.events[0].text}
+              type={popupsStore.event.type}
+              title={popupsStore.event.title}
+              text={popupsStore.event.text}
             />
           )}
           <Map />

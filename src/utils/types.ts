@@ -1,4 +1,4 @@
-interface ICountryStats {
+export interface ICountryStats {
   polulation: number;
   tech: number;
   army: number;
@@ -7,13 +7,19 @@ interface ICountryStats {
   taxes: number;
 }
 
-interface ICountry {
+export interface ICountry {
   name: string;
   stats: ICountryStats;
   traits: string[];
 }
 
-interface IEvent {
+export interface IEvent {
+  type: EventType;
   title: string;
   text: string;
+}
+
+export const enum EventType {
+  info = "info",
+  message = "message",
 }
