@@ -1,6 +1,6 @@
 import { action, makeObservable, observable } from "mobx";
 import { initialStats } from "../utils/initialData";
-import { setTraits } from "../utils/utils";
+import { checkTraits, setTraits } from "../utils/utils";
 
 import { ICountryStats } from "../utils/types";
 
@@ -17,6 +17,7 @@ export class CountryStore {
 
   public constructor() {
     setTraits(this.traits);
+    checkTraits(this.traits);
 
     makeObservable(this);
   }

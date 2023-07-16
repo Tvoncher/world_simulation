@@ -7,3 +7,48 @@ export const setTraits = (countryTraits: string[]) => {
     );
   }
 };
+
+export const checkTraits = (traits: string[]) => {
+  for (let i = 0; i < traits.length; i++) {
+    switch (traits[i]) {
+      case "dumb people":
+        console.log("dumb people");
+        break;
+      case "doormat people":
+        console.log("doormat people");
+        break;
+      case "angry people":
+        console.log("angry people");
+        break;
+      case "corruption everywhere":
+        console.log("corruption everywhere");
+        break;
+      case "opposition rises":
+        console.log("opposition rises");
+        break;
+      case "smart people":
+        console.log("smart people");
+        break;
+      case "lack of resources":
+        console.log("lack of resources");
+        break;
+      case "awfully religious":
+        console.log("awfully religious");
+        break;
+      case "bad ecology":
+        console.log("bad ecology");
+        break;
+      case "friendly people":
+        console.log("friendly people");
+        break;
+      case "progressive":
+        console.log("progressive");
+        break;
+      case "resource-rich":
+        console.log("resource-rich");
+        break;
+      default:
+        console.log("Нет таких значений");
+    }
+  }
+};

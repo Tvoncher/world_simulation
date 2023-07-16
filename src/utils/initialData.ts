@@ -19,4 +19,7 @@ export const listOfTraits = [
   "lack of resources",
   "awfully religious",
   "bad ecology",
+  "friendly people",
+  "progressive",
+  "resource-rich",
 ];
