@@ -3,14 +3,13 @@
   transform: translateX(-50%);
   left: 50%;
   top: 20%;
-  width: 50%;
-  height: 200px;
+  width: 70%;
   background: var(--background-popup);
   z-index: 1;
-
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: popup 0.7s ease-out;
 }
 
 .close_button {
@@ -35,4 +34,13 @@
 .popup_image {
   width: 30%;
   padding: 7%;
+}
+
+@keyframes popup {
+  0% {
+    scale: 0.2;
+  }
+  100% {
+    scale: 1;
+  }
 }
