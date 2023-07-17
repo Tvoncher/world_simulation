@@ -3,7 +3,6 @@ export interface ICountryStats {
   tech: number;
   army: number;
   money: number;
-  earnings: number;
   taxes: number;
 }
 

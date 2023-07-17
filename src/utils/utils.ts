@@ -1,4 +1,8 @@
+import { CountryStore } from "../stores/CountryStore";
+import { gameStore } from "../stores/GameStore";
 import { listOfTraits } from "./initialData";
+
+const gameSpeed = gameStore.gameSpeed;
 
 export const setTraits = (countryTraits: string[]) => {
   for (let i = 0; i < 2; i++) {
@@ -51,4 +55,12 @@ export const checkTraits = (traits: string[]) => {
         console.log("Нет таких значений");
     }
   }
+};
+
+export const runGameLoop = (store: CountryStore) => {
+  setInterval(() => {
+    store.setPopulation(10);
+    store.setTech(1);
+    store.setMoney();
+  }, gameSpeed / 3);
 };

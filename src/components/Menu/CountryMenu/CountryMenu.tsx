@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useCallback } from "react";
 
 import { countryStore } from "../../../stores/CountryStore";
 import { observer } from "mobx-react-lite";
@@ -6,6 +6,18 @@ import { observer } from "mobx-react-lite";
 import "./CountryMenu.css";
 
 const CountryMenu: FC = observer(() => {
+  const handleTaxes = useCallback(
+    (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+      const id = event.currentTarget.id;
+      id === "increase" ? countryStore.setTaxes(1) : countryStore.setTaxes(-1);
+    },
+    []
+  );
+
+  const handleArmy = useCallback(() => {
+    countryStore.setArmy(10);
+  }, []);
+
   return (
     <div className="countryMenu__wrapper">
       <div>
@@ -13,9 +25,15 @@ const CountryMenu: FC = observer(() => {
         your uniquenesses are: {countryStore.traits.join(", ")}
       </div>
       <div className="buttons__wrapper">
-        <div className="menu_button">upgrades1</div>
-        <div className="menu_button">smth other</div>
-        <div className="menu_button">upgrades2</div>
+        <div className="menu_button" id="increase" onClick={handleTaxes}>
+          taxes +
+        </div>
+        <div className="menu_button " id="decrease" onClick={handleTaxes}>
+          taxes -
+        </div>
+        <div className="menu_button" id="army" onClick={handleArmy}>
+          army+
+        </div>
         <div className="menu_button">something</div>
         <div className="menu_button">change later</div>
         <div className="menu_button">another one</div>

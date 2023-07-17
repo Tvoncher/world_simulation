@@ -8,3 +8,19 @@
   display: flex;
   flex-wrap: wrap;
 }
+
+#increase {
+  background: rgb(200, 0, 0, 0.3);
+}
+
+#decrease {
+  background: rgba(54, 241, 54, 0.3);
+}
+
+#army {
+  background: radial-gradient(
+    circle,
+    rgba(116, 125, 185, 1) 0%,
+    rgba(69, 79, 69, 0.4) 60%
+  );
+}

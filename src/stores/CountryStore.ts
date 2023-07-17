@@ -1,6 +1,6 @@
-import { action, makeObservable, observable } from "mobx";
+import { action, makeObservable, observable, reaction, values } from "mobx";
 import { initialStats } from "../utils/initialData";
-import { checkTraits, setTraits } from "../utils/utils";
+import { checkTraits, runGameLoop, setTraits } from "../utils/utils";
 
 import { ICountryStats } from "../utils/types";
 
@@ -20,6 +20,13 @@ export class CountryStore {
     checkTraits(this.traits);
 
     makeObservable(this);
+
+    reaction(
+      () => this.selectedCountry,
+      () => {
+        runGameLoop(countryStore);
+      }
+    );
   }
 
   @action
@@ -28,8 +35,33 @@ export class CountryStore {
   }
 
   @action
-  handleMoney() {
-    this.stats.money += this.stats.earnings - this.stats.taxes;
+  setPopulation(value: number) {
+    this.stats.polulation += value;
+  }
+
+  @action
+  setTech(value: number) {
+    this.stats.tech += value;
+  }
+
+  @action
+  setMoney() {
+    const income = ((this.stats.polulation * this.stats.taxes) / 5).toFixed();
+    this.stats.money += +income;
+  }
+
+  @action
+  setArmy(value: number) {
+    const cost = this.stats.money / 2 + 200;
+    if (this.stats.money >= cost) {
+      this.stats.money -= cost;
+      this.stats.army += value;
+    }
+  }
+
+  @action
+  setTaxes(value: number) {
+    this.stats.taxes += value;
   }
 }
 
