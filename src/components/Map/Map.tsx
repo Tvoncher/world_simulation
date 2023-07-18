@@ -7,12 +7,10 @@ import { worldStore } from "../../stores/WorldStore";
 
 import data from "./geo.json";
 
-import { findCountry } from "../../utils/utils";
+import { handleHover } from "./utils";
+import { borderWeight, drawOnCanvas, noWrap } from "./mapStyle";
 
 const geoData = JSON.stringify(data);
-const borderWeight = 0.3;
-const drawOnCanvas = true;
-const noWrap = false;
 
 const Map: FC = () => {
   const [selectedCountry, setSelectedCountry] = useState("");
@@ -28,13 +26,6 @@ const Map: FC = () => {
 
     //TODO: change later
     gameStore.isPlaying ? console.log("") : gameStore.setIsPlaying();
-  };
-
-  const handleHover = (event: LeafletEvent) => {
-    //only for debugging for now
-    const countryName = event.target.feature.properties.name;
-
-    const countryStore = findCountry(countryName, worldStore.countries);
   };
 
   return (
