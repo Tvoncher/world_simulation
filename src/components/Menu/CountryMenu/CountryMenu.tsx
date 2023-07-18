@@ -18,6 +18,10 @@ const CountryMenu: FC = observer(() => {
     countryStore.setArmy(10);
   }, []);
 
+  const handleArmyEfficiency = useCallback(() => {
+    countryStore.setArmyEfficiency();
+  }, []);
+
   return (
     <div className="countryMenu__wrapper">
       <div>
@@ -32,9 +36,15 @@ const CountryMenu: FC = observer(() => {
           taxes -
         </div>
         <div className="menu_button" id="army" onClick={handleArmy}>
-          army+
+          army
         </div>
-        <div className="menu_button">something</div>
+        <div
+          className="menu_button"
+          id="army_efficiency"
+          onClick={handleArmyEfficiency}
+        >
+          army efficiency
+        </div>
         <div className="menu_button">change later</div>
         <div className="menu_button">another one</div>
       </div>

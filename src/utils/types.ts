@@ -2,6 +2,7 @@ export interface ICountryStats {
   polulation: number;
   tech: number;
   army: number;
+  armyEfficiency: number;
   money: number;
   taxes: number;
 }

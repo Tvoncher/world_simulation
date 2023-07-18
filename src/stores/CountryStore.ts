@@ -63,6 +63,11 @@ export class CountryStore {
   setTaxes(value: number) {
     this.stats.taxes += value;
   }
+
+  @action
+  setArmyEfficiency() {
+    this.stats.armyEfficiency += 0.1;
+  }
 }
 
 export const countryStore = new CountryStore();

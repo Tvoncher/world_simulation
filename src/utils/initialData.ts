@@ -4,6 +4,7 @@ export const initialStats: ICountryStats = {
   polulation: 1000,
   tech: 0,
   army: 0,
+  armyEfficiency: 0.1,
   money: 1000,
   taxes: 1,
 };
