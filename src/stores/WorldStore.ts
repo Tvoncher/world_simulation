@@ -1,7 +1,9 @@
 import { action, makeObservable, observable } from "mobx";
 import geoData from "../components/Map/geo.json";
 import { initialStats } from "../utils/initialData";
-import { setTraits } from "../utils/utils";
+import { getRandomFloat, setTraits } from "../utils/utils";
+import { ICountry } from "../utils/types";
+import { gameStore } from "./GameStore";
 
 export class WorldStore {
   @observable
@@ -14,6 +16,7 @@ export class WorldStore {
     geoData.features.forEach((feature) =>
       this.addToCountries(feature.properties.name)
     );
+    this.runGameLoop();
     makeObservable(this);
   }
 
@@ -40,6 +43,33 @@ export class WorldStore {
   @action
   setSelectedCountry(countryName: string) {
     this.selectedCountry = countryName;
+  }
+
+  @action
+  runGameLoop() {
+    setInterval(() => {
+      this.countries.forEach((country) => {
+        this.setMoney(country);
+        this.setArmy(country);
+      });
+    }, gameStore.gameSpeed / 4);
+  }
+
+  @action
+  setMoney(country: ICountry) {
+    //TODO: change later to real taxes coeff
+    const taxes = getRandomFloat(-0.1, 0.8);
+    const income = ((country.stats.polulation * taxes) / 5).toFixed();
+    country.stats.money += +income;
+  }
+
+  @action
+  setArmy(country: ICountry) {
+    const cost = country.stats.money / 3 + 200;
+    if (country.stats.money >= cost) {
+      country.stats.money -= cost;
+      country.stats.army += 10;
+    }
   }
 }
 

@@ -1,6 +1,7 @@
 import { CountryStore } from "../stores/CountryStore";
 import { gameStore } from "../stores/GameStore";
 import { listOfTraits } from "./initialData";
+import { ICountry } from "./types";
 
 const gameSpeed = gameStore.gameSpeed;
 
@@ -65,3 +66,12 @@ export const runGameLoop = (store: CountryStore) => {
     store.setHappiness();
   }, gameSpeed / 3);
 };
+
+export const findCountry = (searchingName: string, countriesList: ICountry[]) =>
+  countriesList.find((country) => country.name === searchingName);
+
+export const getRandomInt = (min: number, max: number) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+export const getRandomFloat = (min: number, max: number) =>
+  Math.random() * (max - min + 1) + min;
