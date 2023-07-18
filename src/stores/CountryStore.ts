@@ -60,13 +60,22 @@ export class CountryStore {
   }
 
   @action
+  setArmyEfficiency() {
+    const cost = this.stats.money / 2 + 400;
+    if (this.stats.money >= cost) {
+      this.stats.money -= cost;
+      this.stats.armyEfficiency += 0.1;
+    }
+  }
+
+  @action
   setTaxes(value: number) {
     this.stats.taxes += value;
   }
 
   @action
-  setArmyEfficiency() {
-    this.stats.armyEfficiency += 0.1;
+  setHappiness() {
+    this.stats.happiness += -this.stats.taxes;
   }
 }
 

@@ -5,6 +5,7 @@ export interface ICountryStats {
   armyEfficiency: number;
   money: number;
   taxes: number;
+  happiness: number;
 }
 
 export interface ICountry {

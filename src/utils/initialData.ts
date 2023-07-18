@@ -7,6 +7,7 @@ export const initialStats: ICountryStats = {
   armyEfficiency: 0.1,
   money: 1000,
   taxes: 1,
+  happiness: 100,
 };
 
 export const listOfTraits = [

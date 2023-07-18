@@ -62,5 +62,6 @@ export const runGameLoop = (store: CountryStore) => {
     store.setPopulation(10);
     store.setTech(1);
     store.setMoney();
+    store.setHappiness();
   }, gameSpeed / 3);
 };
