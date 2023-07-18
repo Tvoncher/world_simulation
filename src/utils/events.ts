@@ -6,6 +6,14 @@ export const initialEvent: IEvent = {
   text: "Select country by clicking on it. First picked country will become yours. Use buttons in left bottom corner to improve your country and try to conquer whole world.",
 };
 
+export const moneyEvents: IEvent[] = [
+  {
+    type: EventType.info,
+    title: "Financial report",
+    text: "Mr President, I am deeply concerned to inform you that our financial resources are insufficient. The current state of our economy is far from ideal, and we must acknowledge the challenges we face. It is imperative that we unite and work towards finding viable solutions to overcome these difficulties.",
+  },
+];
+
 export const allEvents: IEvent[] = [
   {
     type: EventType.info,
