@@ -8,5 +8,8 @@
 }
 
 .center {
+  text-align: center;
+  width: 40%;
+  height: 100%;
   font-size: 36px;
 }
